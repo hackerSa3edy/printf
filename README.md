@@ -1,4 +1,4 @@
-![Printf](./printf.png)
+![Printf](./media/printf.png)
 
 # Project: 0x11. C - printf
 
