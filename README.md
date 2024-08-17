@@ -15,6 +15,16 @@ A custom implementation of the `printf` function in C.
 - Contributing
 - Experience Gained
 - Printf function brief - What to know to create your own Printf function
+    - Introduction to `printf`
+    - Argument Handling
+    - Processing Format Specifiers
+    - Converting and Formatting
+    - Output Generation
+    - Error Handling
+    - Modifiers and Special Cases
+    - Memory Management
+    - Testing and Debugging
+    - Optimization and Efficiency
 - Authors
 
 ## Description
