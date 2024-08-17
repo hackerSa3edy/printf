@@ -62,18 +62,16 @@ To use this custom `printf` function in your project, follow these steps:
 
 3. Compile the source files:
     ```sh
-    gcc -Wall -Wextra -Werror -pedantic *.c -o printf
+    gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o printf
     ```
 
     - The command `gcc` is used to compile C files. Here's what each flag does:
 
-        - `-Wall`: This flag enables all the warnings about constructions that some users consider questionable, and that are easy to avoid.
-
-        - `-Wextra`: This flag enables some extra warning flags that are not enabled by `-Wall`.
-
-        - `-Werror`: This flag makes all warnings into errors. Compilation stops if a warning is triggered.
-
-        - `-pedantic`: This flag is used to issue all the warnings demanded by strict ISO C and ISO C++. This includes some warnings such as when you use features that are supported by GCC but are not part of the official ISO C standard.
+        - `Wall`: Enables all the commonly used warning messages about potential issues in your code. It’s a good practice to use this option to catch possible errors early.
+        - `Werror`: Treats all warnings as errors. This means that if the compiler encounters any warnings, it will stop the compilation process. This helps ensure that your code is free of warnings.
+        - `Wextra`: Enables additional warning messages that are not included with -Wall. These warnings can help catch more subtle issues in your code.
+        - `pedantic`: Enforces strict compliance with the C standard. This option generates warnings for any code that does not adhere to the standard, ensuring portability and correctness.
+        - `std=gnu89`: Specifies the standard to which the code should conform. In this case, it sets the standard to GNU89, which is the GNU dialect of the 1989 ANSI C standard. This includes some GNU-specific extensions.
 
         - `*.c`: This is a wildcard that matches all files in the current directory that end with the `.c` extension. These are the files that will be compiled.
 
