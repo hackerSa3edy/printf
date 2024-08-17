@@ -4,6 +4,8 @@
 
 A custom implementation of the `printf` function in C.
 
+###### Medium [article](https://medium.com/@HackerSa3edy/printf-the-art-of-crafting-a-custom-function-in-c-programming-a3e3ec06bdb8 "printf: the art of crafting a custom function in c programming").
+
 ## Table of Contents
 
 - Description
