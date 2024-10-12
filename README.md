@@ -8,24 +8,24 @@ A custom implementation of the `printf` function in C.
 
 ## Table of Contents
 
-- Description
-- Features
-- Installation
-- Usage
-- Contributing
-- Experience Gained
-- Printf function brief - What to know to create your own Printf function
-    - Introduction to `printf`
-    - Argument Handling
-    - Processing Format Specifiers
-    - Converting and Formatting
-    - Output Generation
-    - Error Handling
-    - Modifiers and Special Cases
-    - Memory Management
-    - Testing and Debugging
-    - Optimization and Efficiency
-- Authors
+- [Description](#description)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [Experience Gained](#experience-gained)
+- [Printf function brief - What to know to create your own Printf function](#printf-function-brief---what-to-know-to-create-your-own-printf-function)
+  - [Introduction to `printf`](#1-introduction-to-printf)
+  - [Argument Handling](#2-argument-handling)
+  - [Processing Format Specifiers](#3-processing-format-specifiers)
+  - [Converting and Formatting](#4-converting-and-formatting)
+  - [Output Generation](#5-output-generation)
+  - [Error Handling](#6-error-handling)
+  - [Modifiers and Special Cases](#7-modifiers-and-special-cases)
+  - [Memory Management](#8-memory-management)
+  - [Testing and Debugging](#9-testing-and-debugging)
+  - [Optimization and Efficiency](#10-optimization-and-efficiency)
+- [Authors](#authors)
 
 ## Description
 
@@ -34,69 +34,75 @@ This project provides a custom implementation of the `printf` function in C. The
 ## Features
 
 - Supports various format specifiers:
-    - `"c"`: prints a character.
-    - `"s"`: prints a string.
-    - `"r"`: prints a string in reverse.
-    - `"R"`: prints a string in ROT13.
-    - `"d"`: prints an integer.
-    - `"i"`: prints an integer.
-    - `"u"`: prints an unsigned integer.
-    - `"x"`: prints a number in hexadecimal (lowercase).
-    - `"X"`: prints a number in hexadecimal (uppercase).
-    - `"o"`: prints an octal number.
-    - `"b"`: prints the binary representation of an unsigned decimal.
-    - `"S"`: prints a string with non-printable characters replaced by their ASCII code in hexadecimal.
-    - `"p"`: prints a pointer address.
 
-    If the specifier provided does not match any of the above, the function returns `NULL`.
+  - `"c"`: prints a character.
+  - `"s"`: prints a string.
+  - `"r"`: prints a string in reverse.
+  - `"R"`: prints a string in ROT13.
+  - `"d"`: prints an integer.
+  - `"i"`: prints an integer.
+  - `"u"`: prints an unsigned integer.
+  - `"x"`: prints a number in hexadecimal (lowercase).
+  - `"X"`: prints a number in hexadecimal (uppercase).
+  - `"o"`: prints an octal number.
+  - `"b"`: prints the binary representation of an unsigned decimal.
+  - `"S"`: prints a string with non-printable characters replaced by their ASCII code in hexadecimal.
+  - `"p"`: prints a pointer address.
+
+  If the specifier provided does not match any of the above, the function returns `NULL`.
 
 - Handles flags such as:
-    - `#`: This is the "alternate form" flag. When this flag is set, `printf` modifies the output of 'o', 'x', 'X', 'a', 'A', 'e', 'E', 'f', 'F', 'g', and 'G' type specifiers with different behaviors for each specifier.
 
-    - `' '` (space): This flag is used to insert a space before the output when positive signed types are converted and no sign is going to be written. It's ignored if the '+' flag exists.
+  - `#`: This is the "alternate form" flag. When this flag is set, `printf` modifies the output of 'o', 'x', 'X', 'a', 'A', 'e', 'E', 'f', 'F', 'g', and 'G' type specifiers with different behaviors for each specifier.
 
-    - `+`: This flag forces the output to be prepended with a plus or minus sign (+ or -) even for positive numbers. By default, only negative numbers are preceded with a - sign.
+  - `' '` (space): This flag is used to insert a space before the output when positive signed types are converted and no sign is going to be written. It's ignored if the '+' flag exists.
+
+  - `+`: This flag forces the output to be prepended with a plus or minus sign (+ or -) even for positive numbers. By default, only negative numbers are preceded with a - sign.
 
 ## Installation
 
 To use this custom `printf` function in your project, follow these steps:
 
 1. Clone the repository:
-    ```sh
-    git clone https://github.com/hackerSa3edy/printf.git
-    ```
+
+   ```sh
+   git clone https://github.com/hackerSa3edy/printf.git
+   ```
 
 2. Navigate to the project directory:
-    ```sh
-    cd printf
-    ```
+
+   ```sh
+   cd printf
+   ```
 
 3. Compile the source files:
-    ```sh
-    gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o printf
-    ```
 
-    - The command `gcc` is used to compile C files. Here's what each flag does:
+   ```sh
+   gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o printf
+   ```
 
-        - `Wall`: Enables all the commonly used warning messages about potential issues in your code. It’s a good practice to use this option to catch possible errors early.
-        - `Werror`: Treats all warnings as errors. This means that if the compiler encounters any warnings, it will stop the compilation process. This helps ensure that your code is free of warnings.
-        - `Wextra`: Enables additional warning messages that are not included with -Wall. These warnings can help catch more subtle issues in your code.
-        - `pedantic`: Enforces strict compliance with the C standard. This option generates warnings for any code that does not adhere to the standard, ensuring portability and correctness.
-        - `std=gnu89`: Specifies the standard to which the code should conform. In this case, it sets the standard to GNU89, which is the GNU dialect of the 1989 ANSI C standard. This includes some GNU-specific extensions.
+   - The command `gcc` is used to compile C files. Here's what each flag does:
 
-        - `*.c`: This is a wildcard that matches all files in the current directory that end with the `.c` extension. These are the files that will be compiled.
+     - `Wall`: Enables all the commonly used warning messages about potential issues in your code. It’s a good practice to use this option to catch possible errors early.
+     - `Werror`: Treats all warnings as errors. This means that if the compiler encounters any warnings, it will stop the compilation process. This helps ensure that your code is free of warnings.
+     - `Wextra`: Enables additional warning messages that are not included with -Wall. These warnings can help catch more subtle issues in your code.
+     - `pedantic`: Enforces strict compliance with the C standard. This option generates warnings for any code that does not adhere to the standard, ensuring portability and correctness.
+     - `std=gnu89`: Specifies the standard to which the code should conform. In this case, it sets the standard to GNU89, which is the GNU dialect of the 1989 ANSI C standard. This includes some GNU-specific extensions.
 
-        - `-o printf`: This flag is followed by the name of the output file. In this case, the output file will be named `printf`. If this flag is not used, the output file is named `a.out` by default.
+     - `*.c`: This is a wildcard that matches all files in the current directory that end with the `.c` extension. These are the files that will be compiled.
 
+     - `-o printf`: This flag is followed by the name of the output file. In this case, the output file will be named `printf`. If this flag is not used, the output file is named `a.out` by default.
 
 ## Usage
 
 Include the header file in your C program:
+
 ```c
 #include "main.h"
 ```
 
 Use the custom printf function as you would with the standard printf:
+
 ```c
 int main(void)
 {
@@ -107,20 +113,24 @@ int main(void)
 ```
 
 ## Contributing
+
 Contributions are welcome! If you have any improvements or bug fixes, please fork the repository, create a new branch, and submit a pull request.
 
 1. Fork the repository.
 2. Create a new branch:
+
 ```bash
 git checkout -b feature-branch
 ```
 
 3. Make your changes and commit them:
+
 ```bash
 git commit -m "Description of changes"
 ```
 
 4. Push to the branch:
+
 ```bash
 git push origin feature-branch
 ```
@@ -128,6 +138,7 @@ git push origin feature-branch
 5. Open a pull request.
 
 ## Experience Gained
+
 Working on this project provided valuable experience in several areas:
 
 - **Understanding of C Programming**: Deepened my knowledge of C, particularly in handling formatted output and string manipulation.
@@ -149,36 +160,36 @@ This concept page will therefore give you a detailed explanation of how the `pr
 Here is the outline for the what we will cover in this concept page:
 
 1. **Introduction to `printf`**
-    - Brief overview of `printf` and its role in C programming.
-    - The format string: How `printf` uses format specifiers to control output.
+   - Brief overview of `printf` and its role in C programming.
+   - The format string: How `printf` uses format specifiers to control output.
 2. **Argument Handling**
-    - How `printf` handles variable numbers of arguments.
-    - Variadic functions in C.
-    - Parsing the format string to find placeholders.
+   - How `printf` handles variable numbers of arguments.
+   - Variadic functions in C.
+   - Parsing the format string to find placeholders.
 3. **Processing Format Specifiers**
-    - Understanding format specifiers like `%d`, `%s`, `%c`, etc.
-    - How `printf` matches format specifiers to arguments.
-    - Handling flags, field width, precision, and length modifiers.
+   - Understanding format specifiers like `%d`, `%s`, `%c`, etc.
+   - How `printf` matches format specifiers to arguments.
+   - Handling flags, field width, precision, and length modifiers.
 4. **Converting and Formatting**
-    - The role of type conversion in `printf`.
-    - How to format data for output based on the format specifier.
-    - Handling different data types: integers, characters, strings, floats, etc.
+   - The role of type conversion in `printf`.
+   - How to format data for output based on the format specifier.
+   - Handling different data types: integers, characters, strings, floats, etc.
 5. **Output Generation**
-    - How `printf` generates the final formatted output.
-    - Building the output string based on the format and arguments.
-    - Buffering and writing to the standard output.
+   - How `printf` generates the final formatted output.
+   - Building the output string based on the format and arguments.
+   - Buffering and writing to the standard output.
 6. **Error Handling**
-    - Dealing with format string errors.
-    - Handling argument mismatches.
-    - Returning error codes or handling exceptions.
+   - Dealing with format string errors.
+   - Handling argument mismatches.
+   - Returning error codes or handling exceptions.
 7. **Modifiers and Special Cases**
-    - Handling special format specifiers like `%%` and `%n`.
-    - Modifiers like `` for dynamic field width and precision.
+   - Handling special format specifiers like `%%` and `%n`.
+   - Modifiers like `` for dynamic field width and precision.
 8. **Memory Management**
-    - If you want your custom `printf` to allocate memory dynamically, understanding memory management is crucial.
+   - If you want your custom `printf` to allocate memory dynamically, understanding memory management is crucial.
 9. **Testing and Debugging**
-    - Strategies for testing your custom `printf` function.
-    - Debugging common issues.
+   - Strategies for testing your custom `printf` function.
+   - Debugging common issues.
 10. **Optimization and Efficiency**
     - Tips for optimizing your custom `printf` for performance.
 
@@ -440,6 +451,6 @@ Optimization should always be done with a clear understanding of the trade-offs 
 Remember that premature optimization can lead to complex and error-prone code. Start with clear, well-structured code, and then optimize the bottlenecks when you have evidence that they are causing performance issues.
 
 ## Authors
+
 - [Abdelrahman Mohamed](https://github.com/hackerSa3edy)
 - [Tahani Saber](https://github.com/Tahani-Saber)
-
